@@ -44,4 +44,4 @@ app.use((req, res, next) => {
   });
 });
 
-export default serverless(app);
+export const handler =  serverless(app);
