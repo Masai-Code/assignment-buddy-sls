@@ -33,7 +33,7 @@ app.post("/image", async (req, res, next) => {
 
 });
 
-app.get("/answer", async (req, res, next) => {
+app.post("/answer", async (req, res, next) => {
   let questionData = JSON.parse(req.apiGateway.event.body)
   console.log(questionData.question)
   const chat_completion = await openai.createChatCompletion({
