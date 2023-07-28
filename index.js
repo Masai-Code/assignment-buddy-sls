@@ -18,18 +18,22 @@ const openai = new OpenAIApi(configuration);
 
 app.post("/image", async (req, res, next) => {
   let imageData = JSON.parse(req.apiGateway.event.body)
-  var base64result = imageData.image(',')[1];
-  let imageBuffer = Buffer.from(base64result, "base64");
-  await worker.loadLanguage('eng');
-  await worker.initialize('eng');
-  const { data: { text } } = await worker.recognize(imageBuffer);
-  console.log(text);
-  await worker.terminate();
 
+  console.log(imageData.image)
+  // var base64result = req.body.image(',')[1];
+  // let imageBuffer = Buffer.from(base64result, "base64");
+  // await worker.loadLanguage('eng');
+  // await worker.initialize('eng');
+  // const { data: { text } } = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+  // console.log(text);
+  // await worker.terminate();
+
+  // return res.status(200).json({
+  //   message: text,
+  // });
   return res.status(200).json({
-    message: text,
+    message: "text",
   });
-
 });
 
 app.get("/answer", async (req, res, next) => {
