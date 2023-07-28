@@ -33,9 +33,7 @@ app.get("/answer", async (req, res, next) => {
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: "Hello world" }],
 });
-  return res.status(200).json({
-      chat_completion
-  });
+  return res.status(200).send(chat_completion);
 });
 
 app.use((req, res, next) => {
