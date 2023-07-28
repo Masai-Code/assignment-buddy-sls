@@ -17,9 +17,10 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 app.post("/image", async (req, res, next) => {
+  console.log(req.body)
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
-  const { data: { text } } = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+  const { data: { text } } = await worker.recognize(req.body.image);
   console.log(text);
   await worker.terminate();
 
