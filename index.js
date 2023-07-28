@@ -37,10 +37,9 @@ app.post("/answer", async (req, res, next) => {
   let questionData = JSON.parse(req.apiGateway.event.body)
   console.log(questionData.question)
   const chat_completion = await openai.createChatCompletion({
-    model: "gpt-3.5-turbo",
-    messages: [{ role: "user", content: "Hello world" }],
+    model: "gpt-3.5-turbo-16k",
+    messages: [{ role: "user", content: questionData.question }],
 });
-console.log(chat_completion)
   return res.status(200).json(chat_completion.data);
 });
 
