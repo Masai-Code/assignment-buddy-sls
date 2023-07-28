@@ -19,7 +19,7 @@ const openai = new OpenAIApi(configuration);
 app.post("/image", async (req, res, next) => {
   let imageData = JSON.parse(req.apiGateway.event.body)
 
-  console.log(imageData.image.toString())
+  console.log(imageData.image.toString().split(',')[1])
   // var base64result = req.body.image(',')[1];
   // let imageBuffer = Buffer.from(base64result, "base64");
   // await worker.loadLanguage('eng');
