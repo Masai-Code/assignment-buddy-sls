@@ -34,7 +34,7 @@ app.get("/answer", async (req, res, next) => {
     messages: [{ role: "user", content: "Hello world" }],
 });
 console.log(chat_completion)
-  return res.status(200).json({"message": "Completed"});
+  return res.status(200).json(chat_completion.data);
 });
 
 app.use((req, res, next) => {
