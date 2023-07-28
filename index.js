@@ -1,9 +1,10 @@
-const serverless = require("serverless-http");
-const express = require("express");
-const app = express();
+import serverless from 'serverless-http'
+import express from 'express';
 import { createWorker } from 'tesseract.js';
-const { Configuration, OpenAIApi } = require("openai");
+import {Configuration, OpenAIApi} from 'openai'
 import 'dotenv/config'
+
+const app = express();
 
 
 const worker = await createWorker({
@@ -43,4 +44,4 @@ app.use((req, res, next) => {
   });
 });
 
-module.exports.handler = serverless(app);
+export default serverless(app);
